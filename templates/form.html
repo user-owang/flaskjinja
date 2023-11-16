@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block title %}Madlib Generator{% endblock %} {%
 block content %}
 <h1>Fill in your words!</h1>
-<form action="/result">
+<form action="{{index}}/result">
   {% for word in story['prompts'] %}
   <label for="{{word}}">{{word.replace('_', ' ').title()}}</label>
   <input type="text" name="{{word}}" id="{{word}}" /> <br />

@@ -13,8 +13,9 @@ def show_home():
 
 @app.route('/form/<story_id>')
 def show_form(story_id):
-  return render_template('form.html', story= storyDict.get(story_id))
+  return render_template('form.html', story= storyDict.get(story_id), index=story_id)
 
-@app.route('/form/<story_id>/results')
+@app.route('/form/<story_id>/result')
 def show_results(story_id):
-  return render_template('form.html', story= storyDict.get(story_id))
+  story = storyDict.get(story_id)
+  return render_template('results.html', msg = story.generate(request.args))
